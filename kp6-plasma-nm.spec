@@ -73,8 +73,9 @@ Plasma applet written in QML for managing network connections.
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
 	%ifarch i686 x32
-		-DBUILD_OPENCONNECT=OFF \
+		-DBUILD_OPENCONNECT=OFF
 	%endif
+
 %ninja_build -C build
 
 %if %{with tests}

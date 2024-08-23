@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# build with tests
 %define		kdeplasmaver	6.1.4
-%define		qtver		5.15.2
+%define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
@@ -47,7 +47,10 @@ BuildRequires:	kf6-modemmanager-qt-devel
 BuildRequires:	kf6-networkmanager-qt-devel
 BuildRequires:	kf6-solid-devel
 BuildRequires:	ninja
+%ifnarch i686 x32
 BuildRequires:	openconnect-devel >= 3.99
+BuildRequires:	Qt6WebEngine-devel >= %{qtver}
+%endif
 BuildRequires:	pkgconfig
 BuildRequires:	qca-qt6-devel >= 2.1.1
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -68,7 +71,10 @@ Plasma applet written in QML for managing network connections.
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir}
+	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
+	%ifarch i686 x32
+		-DBUILD_OPENCONNECT=OFF \
+	%endif
 %ninja_build -C build
 
 %if %{with tests}

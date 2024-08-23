@@ -48,8 +48,8 @@ BuildRequires:	kf6-networkmanager-qt-devel
 BuildRequires:	kf6-solid-devel
 BuildRequires:	ninja
 %ifnarch i686 x32
-BuildRequires:	openconnect-devel >= 3.99
 BuildRequires:	Qt6WebEngine-devel >= %{qtver}
+BuildRequires:	openconnect-devel >= 3.99
 %endif
 BuildRequires:	pkgconfig
 BuildRequires:	qca-qt6-devel >= 2.1.1
@@ -112,13 +112,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kcm_networkmanagement/qml/ConfigurationDialog.qml
 %dir %{_libdir}/qt6/plugins/plasma/network
 %dir %{_libdir}/qt6/plugins/plasma/network/vpn
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
+
+%ifnarch i686 x32
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_arrayui.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_f5ui.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_fortinetui.so
+%endif
+
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_pptpui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_sshui.so
@@ -129,9 +136,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
 %{_desktopdir}/kcm_networkmanagement.desktop
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_arrayui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_f5ui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_fortinetui.so
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/kde-qmlmodule.version
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/libplasmanm_internalplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/plasmanm_internal.qmltypes

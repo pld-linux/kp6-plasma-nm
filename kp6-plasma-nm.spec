@@ -9,7 +9,7 @@
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
 Version:	6.1.5
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -47,6 +47,7 @@ BuildRequires:	kf6-modemmanager-qt-devel
 BuildRequires:	kf6-networkmanager-qt-devel
 BuildRequires:	kf6-solid-devel
 BuildRequires:	ninja
+BuildRequires:	qcoro-qt6-devel
 %ifnarch i686 x32
 BuildRequires:	Qt6WebEngine-devel >= %{qtver}
 BuildRequires:	openconnect-devel >= 3.99

@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.1.5
+%define		kdeplasmaver	6.2.0
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.1.5
-Release:	2
+Version:	6.2.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	31b89df7cb6a3a088353dd3c86fc8d95
+# Source0-md5:	1fda0a31d5421fc4d89fffaae4ff3ac9
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -46,6 +46,7 @@ BuildRequires:	kf6-kxmlgui-devel
 BuildRequires:	kf6-modemmanager-qt-devel
 BuildRequires:	kf6-networkmanager-qt-devel
 BuildRequires:	kf6-solid-devel
+BuildRequires:	kp6-libplasma-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	qcoro-qt6-devel
 %ifnarch i686 x32
@@ -142,3 +143,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/plasmanm_internal.qmltypes
 %{_datadir}/knotifications6/networkmanagement.notifyrc
 %{_datadir}/qlogging-categories6/plasma-nm.categories
+%{_desktopdir}/org.kde.vpnimport.desktop

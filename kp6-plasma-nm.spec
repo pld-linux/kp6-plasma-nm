@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.3.1
+%define		kdeplasmaver	6.3.2
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.3.1
+Version:	6.3.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	156dd0d85243bea20624bcd02362517b
+# Source0-md5:	1b9dd5ae4ebf274bc282d2636af50fbb
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel

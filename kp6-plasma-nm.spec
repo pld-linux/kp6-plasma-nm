@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.3.5
+%define		kdeplasmaver	6.4.0
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.3.5
+Version:	6.4.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fcbb0e9cfbab81cc66d73688b8861fc9
+# Source0-md5:	206b2bc380f36e987fdb64dd0b85d62c
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -113,13 +113,15 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kcm_networkmanagement
 %dir %{_datadir}/kcm_networkmanagement/qml
 %{_datadir}/kcm_networkmanagement/qml/ConnectionItem.qml
-%{_datadir}/kcm_networkmanagement/qml/ListItem.qml
 %{_datadir}/kcm_networkmanagement/qml/main.qml
 %{_datadir}/metainfo/org.kde.plasma.networkmanagement.appdata.xml
 %{_datadir}/kcm_networkmanagement/qml/AddConnectionDialog.qml
 %{_datadir}/kcm_networkmanagement/qml/ConfigurationDialog.qml
 %dir %{_libdir}/qt6/plugins/plasma/network
 %dir %{_libdir}/qt6/plugins/plasma/network/vpn
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_cellular_network.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_hotspot.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wifi.so
 
 %ifnarch i686 x32
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
@@ -142,6 +144,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_vpncui.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
+%{_desktopdir}/kcm_cellular_network.desktop
+%{_desktopdir}/kcm_mobile_hotspot.desktop
+%{_desktopdir}/kcm_mobile_wifi.desktop
 %{_desktopdir}/kcm_networkmanagement.desktop
 
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/kde-qmlmodule.version

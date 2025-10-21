@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.4.5
+%define		kdeplasmaver	6.5.0
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.4.5
-Release:	3
+Version:	6.5.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	e2e08cbcf3422eadc717a700556e6e98
+# Source0-md5:	adab2427ca870e41aac9486875983d89
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -105,53 +105,54 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libplasmanm_editor.so
-%attr(755,root,root) %{_libdir}/libplasmanm_internal.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/networkmanagement.so
+%{_libdir}/libplasmanm_editor.so
+%{_libdir}/libplasmanm_internal.so
+%{_libdir}/qt6/plugins/kf6/kded/networkmanagement.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/qmldir
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement
 %dir %{_datadir}/kcm_networkmanagement
 %dir %{_datadir}/kcm_networkmanagement/qml
 %{_datadir}/kcm_networkmanagement/qml/ConnectionItem.qml
 %{_datadir}/kcm_networkmanagement/qml/main.qml
-%{_datadir}/metainfo/org.kde.plasma.networkmanagement.appdata.xml
 %{_datadir}/kcm_networkmanagement/qml/AddConnectionDialog.qml
 %{_datadir}/kcm_networkmanagement/qml/ConfigurationDialog.qml
 %dir %{_libdir}/qt6/plugins/plasma/network
 %dir %{_libdir}/qt6/plugins/plasma/network/vpn
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_cellular_network.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_hotspot.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wifi.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.networkmanagement.so
+
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_cellular_network.so
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_hotspot.so
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wifi.so
 
 %ifnarch i686 x32
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_arrayui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_f5ui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_fortinetui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_arrayui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_f5ui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_fortinetui.so
 %endif
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_pptpui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_sshui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_sstpui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_strongswanui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_vpncui.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_pptpui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_sshui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_sstpui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_strongswanui.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_vpncui.so
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
+%{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
+
 %{_desktopdir}/kcm_cellular_network.desktop
 %{_desktopdir}/kcm_mobile_hotspot.desktop
 %{_desktopdir}/kcm_mobile_wifi.desktop
 %{_desktopdir}/kcm_networkmanagement.desktop
 
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/libplasmanm_internalplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/libplasmanm_internalplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/plasmanm_internal.qmltypes
 %{_datadir}/knotifications6/networkmanagement.notifyrc
 %{_datadir}/qlogging-categories6/plasma-nm.categories

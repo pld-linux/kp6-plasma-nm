@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.5.5
+%define		kdeplasmaver	6.6.0
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.5.5
-Release:	2
+Version:	6.6.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	c5cb12aa62b92b93c1f5a65935d40014
+# Source0-md5:	d7964cee8bf5553fc8063566080f7e1c
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -124,6 +124,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_hotspot.so
 %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wifi.so
 
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wired.so
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/ConnectionItemDelegate.qml
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/TrafficMonitor.qml
+
 %ifnarch i686 x32
 %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
 %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
@@ -157,3 +161,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/knotifications6/networkmanagement.notifyrc
 %{_datadir}/qlogging-categories6/plasma-nm.categories
 %{_desktopdir}/org.kde.vpnimport.desktop
+%{_desktopdir}/kcm_mobile_wired.desktop

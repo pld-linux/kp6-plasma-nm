@@ -67,6 +67,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Plasma applet written in QML for managing network connections.
 
+%description -l pl.UTF-8
+Aplet Plazmy napisany w QML do zarządzania połączeniami sieciowymi.
+
 %prep
 %setup -q -n %{kpname}-%{version}
 

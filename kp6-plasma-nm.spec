@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.6.5
+%define		kdeplasmaver	6.7.0
 %define		qtver		6.6.0
 %define		kpname		plasma-nm
 %define		kf6ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
-Version:	6.6.5
+Version:	6.7.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	91a445df344fff122977f62bd3e641d0
+# Source0-md5:	ddac7dcdfe91d8741eae0bbd10162bd0
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -130,6 +130,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_mobile_wired.so
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/ConnectionItemDelegate.qml
 %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/TrafficMonitor.qml
+
+%{_libdir}/libplasmanm_cellular.so
+%dir %{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/cellular
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/cellular/kde-qmlmodule.version
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/cellular/libplasmanm_cellularplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/cellular/plasmanm_cellular.qmltypes
+%{_libdir}/qt6/qml/org/kde/plasma/networkmanagement/cellular/qmldir
 
 %ifnarch i686 x32
 %{_libdir}/qt6/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so

@@ -9,7 +9,7 @@
 Summary:	plasma-nm
 Name:		kp6-%{kpname}
 Version:	6.7.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -20,6 +20,7 @@ BuildRequires:	NetworkManager-devel
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
 BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Keychain-devel
 BuildRequires:	Qt6Network-devel >= %{qtver}
 BuildRequires:	Qt6Qml-devel >= %{qtver}
 BuildRequires:	Qt6Quick-devel >= %{qtver}
